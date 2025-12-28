@@ -1,0 +1,20 @@
+ * {
+     font-family: sans-serif;
+ }
+
+ .class-selector {
+     color: red;
+ }
+
+ #id-selector {
+     color: blue;
+ }
+
+ div p {
+     color: blueviolet;
+ }
+
+ h3,
+ h4 {
+     color: chartreuse;
+ }

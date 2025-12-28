@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Styling Example</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .internal-box p{
+            color: darkgreen;
+            background-color: antiquewhite;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>
+        Inline CSS
+    </h1>
+    <p style="color: red; background-color: yellow;">
+        This paragraph is styled using the inline 'style' attribute.
+    </p>
+
+    <div class="internal-box">
+        <h1>Internal CSS</h1>
+        <p>This paragraph is styled by the class selector in the internal &lt;style&gt; block.</p>
+    </div>
+
+    <div class="external-box">
+        <h1 class="external-heading">External CSS</h1>
+        <p>This paragraph is styled by the class selector in the linked 'styles.css' file.</p>
+    </div>
+</body>
+</html>
