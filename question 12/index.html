@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const grades = [85, 42, 92, 60, 33];
+
+        console.log("--- 1. Conditional Statements (if/else) ---");
+        grades.forEach(score => {
+            if (score >= 50) {
+                console.log(`Score ${score}: Status - Passed`);
+            } else {
+                console.log(`Score ${score}: Status - Failed`);
+            }
+        });
+
+        console.log("\n--- 2. For Loop (Fixed Iteration) ---");
+        for (let i = 0; i < grades.length; i++) {
+            console.log(`Item at index ${i} is ${grades[i]}`);
+        }
+
+        console.log("\n--- 3. While Loop (Condition-based) ---");
+        let count = 5;
+        while (count > 0) {
+            console.log(`Countdown: ${count}`);
+            count--;
+        }
+
+        console.log("\n--- 4. Do...While Loop (Runs at least once) ---");
+        let x = 10;
+        do {
+            console.log("This will print once even though x is not less than 5");
+            x++;
+        } while (x < 5);
+    </script>
+</body>
+
+</html>

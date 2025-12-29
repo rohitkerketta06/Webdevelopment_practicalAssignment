@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Shapes Demo</title>
+</head>
+<body>
+
+    <h1>Basic Drawing on Canvas</h1>
+    
+    <canvas id="drawingBoard" width="500" height="400" style="border: 2px solid #333;">
+        Your browser does not support HTML5 Canvas.
+    </canvas>
+
+    <script>
+        const canvas = document.getElementById('drawingBoard');
+        const ctx = canvas.getContext('2d');
+
+        // 1. Draw a Solid Rectangle
+        ctx.fillStyle = "orange";
+        ctx.fillRect(50, 50, 150, 80); // x, y, width, height
+
+        // 2. Draw a Circle
+        ctx.beginPath();
+        ctx.arc(350, 90, 50, 0, Math.PI * 2); // x, y, radius, startAngle, endAngle
+        ctx.fillStyle = "skyblue";
+        ctx.fill();
+        ctx.strokeStyle = "navy";
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // 3. Draw a Triangle (Using Paths)
+        ctx.beginPath();
+        ctx.moveTo(100, 350); // Move to starting point
+        ctx.lineTo(250, 350); // Draw bottom line
+        ctx.lineTo(175, 200); // Draw line to top peak
+        ctx.closePath();      // Close the path back to start
+        
+        ctx.fillStyle = "#2ecc71"; // Emerald Green
+        ctx.fill();
+        ctx.strokeStyle = "#27ae60";
+        ctx.stroke();
+
+        // 4. Draw Text
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "black";
+        ctx.fillText("Canvas Art", 320, 350);
+    </script>
+
+</body>
+</html>

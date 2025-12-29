@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Functions and Scope</title>
+</head>
+<body>
+
+    <h1>Functions and Scope</h1>
+
+    <h3>Function Invocation</h3>
+    <p id="area-output"></p>
+
+    <h3>Scope Demonstration</h3>
+    <p id="scope-output"></p>
+
+    <script>
+        // Function Declaration: defines parameters for inputs
+        function calculateArea(width, height) {
+            return width * height; // Sends a value back to the caller
+        }
+
+        // Invoking the function and displaying the result
+        const result = calculateArea(12, 5);
+        document.getElementById('area-output').innerText = "Result of calculateArea(12, 5): " + result;
+
+
+        const output = document.getElementById('scope-output');
+
+        function testScope() {
+            // Var is function-scoped
+            // Let and Const are block-scoped
+            if (true) {
+                var varVariable = "I am a var variable";
+                let letVariable = "I am a let variable";
+                const constVariable = "I am a const variable";
+                
+                output.innerHTML += "Inside block (let): " + letVariable + "<br>";
+            }
+
+            // This works because var ignores block boundaries
+            output.innerHTML += "Outside block (var): " + varVariable + "<br>";
+
+            // This fails because let is restricted to the block it was defined in
+            try {
+                console.log(letVariable);
+            } catch (err) {
+                output.innerHTML += "Outside block (let): Error - Variable not defined.<br>";
+            }
+        }
+
+        // Calling the scope test function
+        testScope();
+
+        // Constant variable demonstration
+        const pi = 3.14159;
+        try {
+            pi = 3.14; // Re-assignment attempt
+        } catch (err) {
+            output.innerHTML += "Const Check: Cannot re-assign a constant.";
+        }
+    </script>
+
+</body>
+</html>

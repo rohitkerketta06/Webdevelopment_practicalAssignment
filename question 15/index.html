@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation Demo</title>
+</head>
+<body>
+
+    <h1 id="main-title">Original Title</h1>
+    
+    <p class="description">This is a simple paragraph.</p>
+    
+    <div id="container">
+        </div>
+
+    <button onclick="changeContent()">Update Page</button>
+
+    <script>
+        function changeContent() {
+            // 1. getElementById(): Selecting a specific element by its ID
+            const title = document.getElementById('main-title');
+            title.innerText = "Title Updated via JS!";
+            title.style.color = "blue";
+
+            // 2. querySelector(): Selecting by CSS-style selectors (like class)
+            // It selects the first element that matches
+            const desc = document.querySelector('.description');
+            desc.style.fontWeight = "bold";
+            desc.style.backgroundColor = "yellow";
+
+            // 3. innerHTML: Changing the actual HTML structure inside an element
+            const container = document.getElementById('container');
+            container.innerHTML = `
+                <ul style="border: 1px solid black; padding: 10px;">
+                    <li>Item One (Added via innerHTML)</li>
+                    <li>Item Two (Added via innerHTML)</li>
+                </ul>
+            `;
+        }
+    </script>
+
+</body>
+</html>

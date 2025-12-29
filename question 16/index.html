@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle Visibility and Classes</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        /* Class to be toggled */
+        .highlight {
+            background-color: #f1c40f;
+            border: 5px solid #d35400;
+            color: black;
+            transform: scale(1.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DOM Interaction</h1>
+
+    <button onclick="toggleVisibility()">Show/Hide Box</button>
+    <button onclick="toggleStyle()">Toggle Highlight Class</button>
+
+    <div id="myBox" class="box">
+        Interactive Box
+    </div>
+
+    <script>
+        // 1. Toggle Visibility using display property
+        function toggleVisibility() {
+            const box = document.getElementById('myBox');
+            
+            if (box.style.display === "none") {
+                box.style.display = "block";
+            } else {
+                box.style.display = "none";
+            }
+        }
+
+        // 2. Toggle CSS Class using classList
+        function toggleStyle() {
+            const box = document.getElementById('myBox');
+            
+            // toggle() adds the class if it's missing, or removes it if it exists
+            box.classList.toggle('highlight');
+        }
+    </script>
+
+</body>
+</html>

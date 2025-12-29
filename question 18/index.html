@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Table Manager</title>
+    <style>
+        table { border-collapse: collapse; margin-top: 20px; width: 100%; max-width: 400px; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+        .delete-btn { color: white; background: red; border: none; cursor: pointer; padding: 4px 8px; }
+    </style>
+</head>
+<body>
+
+    <h1>Student List</h1>
+
+    <input type="text" id="nameInput" placeholder="Name">
+    <input type="number" id="ageInput" placeholder="Age">
+    <button id="addBtn">Add to Table</button>
+
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+
+    <script>
+        const addBtn = document.getElementById('addBtn');
+        const tableBody = document.querySelector('#userTable tbody');
+
+        addBtn.addEventListener('click', () => {
+            const name = document.getElementById('nameInput').value;
+            const age = document.getElementById('ageInput').value;
+
+            if (!name || !age) {
+                alert("Please fill in both fields");
+                return;
+            }
+
+            // Create <tr> (Table Row)
+            const row = document.createElement('tr');
+
+            // Create <td> (Cells) and fill them
+            const nameCell = document.createElement('td');
+            nameCell.innerText = name;
+
+            const ageCell = document.createElement('td');
+            ageCell.innerText = age;
+
+            const actionCell = document.createElement('td');
+            
+            // Create Delete Button
+            const deleteBtn = document.createElement('button');
+            deleteBtn.innerText = "Delete";
+            deleteBtn.className = "delete-btn";
+
+            // Event listener to remove this specific row
+            deleteBtn.addEventListener('click', () => {
+                row.remove(); // Direct removal of the element
+            });
+
+            // Append cells to the row
+            actionCell.appendChild(deleteBtn);
+            row.appendChild(nameCell);
+            row.appendChild(ageCell);
+            row.appendChild(actionCell);
+
+            // Append row to the table body
+            tableBody.appendChild(row);
+
+            // Clear inputs
+            document.getElementById('nameInput').value = '';
+            document.getElementById('ageInput').value = '';
+        });
+    </script>
+
+</body>
+</html>

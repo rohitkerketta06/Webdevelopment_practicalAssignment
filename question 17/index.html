@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minimalist Event Listeners</title>
+    <style>
+        /* Minimal CSS for visibility */
+        #box {
+            width: 150px;
+            height: 150px;
+            background: lightgray;
+            border: 2px solid #333;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interaction Demo</h1>
+    <p>Move mouse over box, click it, or press keys (R, G, B).</p>
+    
+    <div id="box">Target Box</div>
+
+    <p id="status">Status: Waiting...</p>
+    
+    <button id="stopBtn">Disable Mouse Tracking</button>
+
+    <script>
+        const box = document.getElementById('box');
+        const status = document.getElementById('status');
+        const stopBtn = document.getElementById('stopBtn');
+
+        // Function for mouse movement
+        const trackMouse = (e) => {
+            status.innerText = `Coordinates: X=${e.offsetX}, Y=${e.offsetY}`;
+        };
+
+        // Function for clicks
+        const reportClick = () => {
+            status.innerText = "Status: Box was clicked!";
+            box.style.backgroundColor = "yellow";
+        };
+
+        // Adding Listeners (Section 4.4)
+        box.addEventListener('mousemove', trackMouse);
+        box.addEventListener('click', reportClick);
+
+        // Keyboard Event (Section 4.4)
+        document.addEventListener('keydown', (e) => {
+            status.innerText = `Key Pressed: ${e.key}`;
+            
+            // Logic based on key input
+            if (e.key.toLowerCase() === 'r') box.style.backgroundColor = "red";
+            if (e.key.toLowerCase() === 'g') box.style.backgroundColor = "green";
+            if (e.key.toLowerCase() === 'b') box.style.backgroundColor = "blue";
+        });
+
+        // Removing a listener
+        stopBtn.addEventListener('click', () => {
+            box.removeEventListener('mousemove', trackMouse);
+            status.innerText = "Status: Mouse tracking disabled.";
+        });
+    </script>
+
+</body>
+</html>

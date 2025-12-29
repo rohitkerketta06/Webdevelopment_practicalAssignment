@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation Demo</title>
+</head>
+<body>
+
+    <h1>User Registration</h1>
+
+    <form id="registrationForm">
+        <label for="username">Username (min 5 chars):</label><br>
+        <input type="text" id="username" name="username" required>
+        <span id="nameHint" style="font-size: 0.8em; color: gray;"></span>
+        <br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="password">Password (numbers only):</label><br>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <button type="submit">Submit Registration</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const usernameInput = document.getElementById('username');
+        const nameHint = document.getElementById('nameHint');
+
+        // oninput event: Fires every time the user types
+        usernameInput.oninput = function() {
+            if (usernameInput.value.length < 5) {
+                nameHint.innerText = "Too short...";
+                nameHint.style.color = "red";
+            } else {
+                nameHint.innerText = "Length okay!";
+                nameHint.style.color = "green";
+            }
+        };
+
+        // onsubmit event: Fires when the user clicks the submit button
+        form.onsubmit = function(event) {
+            const password = document.getElementById('password').value;
+            const username = usernameInput.value;
+
+            // Manual Validation Logic
+            if (username.length < 5) {
+                alert("Error: Username must be at least 5 characters long.");
+                event.preventDefault(); // Stops the form from submitting
+                return;
+            }
+
+            // check if password is only numbers using isNaN
+            if (isNaN(password)) {
+                alert("Error: Password must contain only numbers.");
+                event.preventDefault(); // Stops the form from submitting
+                return;
+            }
+
+            // Success feedback
+            alert("Success! Form submitted for " + username);
+        };
+    </script>
+
+</body>
+</html>
