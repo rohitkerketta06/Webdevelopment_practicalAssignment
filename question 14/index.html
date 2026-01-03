@@ -29,8 +29,6 @@
         const form = document.getElementById('registrationForm');
         const usernameInput = document.getElementById('username');
         const nameHint = document.getElementById('nameHint');
-
-        // oninput event: Fires every time the user types
         usernameInput.oninput = function() {
             if (usernameInput.value.length < 5) {
                 nameHint.innerText = "Too short...";
@@ -41,26 +39,26 @@
             }
         };
 
-        // onsubmit event: Fires when the user clicks the submit button
+        
         form.onsubmit = function(event) {
             const password = document.getElementById('password').value;
             const username = usernameInput.value;
 
-            // Manual Validation Logic
+        
             if (username.length < 5) {
                 alert("Error: Username must be at least 5 characters long.");
-                event.preventDefault(); // Stops the form from submitting
+                event.preventDefault(); 
                 return;
             }
 
-            // check if password is only numbers using isNaN
+            
             if (isNaN(password)) {
                 alert("Error: Password must contain only numbers.");
-                event.preventDefault(); // Stops the form from submitting
+                event.preventDefault(); 
                 return;
             }
 
-            // Success feedback
+            
             alert("Success! Form submitted for " + username);
         };
     </script>

@@ -14,7 +14,6 @@
             transition: all 0.3s;
         }
 
-        /* Class to be toggled */
         .highlight {
             background-color: #f1c40f;
             border: 5px solid #d35400;
@@ -39,7 +38,7 @@
     </div>
 
     <script>
-        // 1. Toggle Visibility using display property
+        
         function toggleVisibility() {
             const box = document.getElementById('myBox');
             
@@ -50,11 +49,11 @@
             }
         }
 
-        // 2. Toggle CSS Class using classList
+      
         function toggleStyle() {
             const box = document.getElementById('myBox');
             
-            // toggle() adds the class if it's missing, or removes it if it exists
+            
             box.classList.toggle('highlight');
         }
     </script>

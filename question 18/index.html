@@ -42,10 +42,10 @@
                 return;
             }
 
-            // Create <tr> (Table Row)
+           
             const row = document.createElement('tr');
 
-            // Create <td> (Cells) and fill them
+            
             const nameCell = document.createElement('td');
             nameCell.innerText = name;
 
@@ -53,27 +53,26 @@
             ageCell.innerText = age;
 
             const actionCell = document.createElement('td');
-            
-            // Create Delete Button
+           
             const deleteBtn = document.createElement('button');
             deleteBtn.innerText = "Delete";
             deleteBtn.className = "delete-btn";
 
-            // Event listener to remove this specific row
+          
             deleteBtn.addEventListener('click', () => {
-                row.remove(); // Direct removal of the element
+                row.remove(); 
             });
 
-            // Append cells to the row
+          
             actionCell.appendChild(deleteBtn);
             row.appendChild(nameCell);
             row.appendChild(ageCell);
             row.appendChild(actionCell);
 
-            // Append row to the table body
+            
             tableBody.appendChild(row);
 
-            // Clear inputs
+            
             document.getElementById('nameInput').value = '';
             document.getElementById('ageInput').value = '';
         });
